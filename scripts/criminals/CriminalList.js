@@ -5,7 +5,7 @@ export const CriminalList = () => {
     getCriminals()
         .then(() => {
             const criminalArray = useCriminals()
-            console.log("criminalArray", criminalArray)
+            // console.log("criminalArray", criminalArray)
             addOfficersToDOM(criminalArray)
         })
 }
