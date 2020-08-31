@@ -1,3 +1,7 @@
+body {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
 .officersContainer {
     display: flex;
     flex-flow: row wrap;
@@ -8,4 +12,26 @@
     margin: 10px;
     padding: 10px;
     border: 3px solid darkred;
+    width: 250px;
+}
+
+.criminalsContainer {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.card-criminal {
+    background-color: darkgray;
+    margin: 10px;
+    padding: 10px;
+    border: 3px solid slategray;
+    width: 250px;
+}
+
+.card-criminal h2 {
+    margin: 0 0 10px 0;
+}
+
+.card-criminal p {
+    margin: 2px 0;
 }
