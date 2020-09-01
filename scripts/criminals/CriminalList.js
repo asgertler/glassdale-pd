@@ -1,6 +1,14 @@
 import { CriminalHTML } from './Criminal.js'
 import { useCriminals, getCriminals } from './CriminalProvider.js'
 
+const eventHub = document.querySelector(".filters")
+
+eventHub.addEventListener("crimeChosen", changeEvent => {
+    if ("crimeID" in changeEvent.detail) {
+
+    }
+})
+
 export const CriminalList = () => {
     getCriminals()
         .then(() => {
