@@ -2,9 +2,15 @@ body {
     font-family: 'Roboto Condensed', sans-serif;
 }
 
+.filters {
+    display: flex;
+    flex-flow: row wrap;
+}
+
 .filters__crime {
     display: flex;
     flex-flow: row wrap;
+    margin-right: 10px;
 }
 
 .card-officer {

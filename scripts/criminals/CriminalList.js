@@ -2,7 +2,6 @@ import { CriminalHTML } from './Criminal.js'
 import { useCriminals, getCriminals } from './CriminalProvider.js'
 
 const eventHub = document.querySelector(".container")
-const contentTarget = document.querySelector('.criminalsContainer')
 
 eventHub.addEventListener("crimeChosen", event => {
     if ("crimeId" in event.detail) {
@@ -18,7 +17,22 @@ eventHub.addEventListener("crimeChosen", event => {
     }
 })
 
+eventHub.addEventListener("officerChosen", event => {
+    if ("officerId" in event.detail) {
+
+        const selectedOfficer = event.detail.officerId
+
+        const appStateCriminals = useCriminals()
+        const matchingCriminals = appStateCriminals.filter(currentCriminal => {
+            return currentCriminal.arrestingOfficer === selectedOfficer
+        })
+
+        render(matchingCriminals)
+    }
+})
+
 const render = criminalCollection => {
+    const contentTarget = document.querySelector('.criminalsContainer')
     contentTarget.innerHTML = criminalCollection.map(criminalObj => {
         return CriminalHTML(criminalObj)
     }).join("")
