@@ -1,24 +1,21 @@
 import { CriminalHTML } from './Criminal.js'
 import { useCriminals, getCriminals } from './CriminalProvider.js'
-import { useConvictions } from '../convictions/ConvictionProvider.js'
 
 const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector('.criminalsContainer')
 
-eventHub.addEventListener("chosenCrime", crimeEvent => {
-    const crimeThatWasChosen = crimeEvent.detail.crimeId
+eventHub.addEventListener("crimeChosen", event => {
+    if ("crimeId" in event.detail) {
 
-    const crimeArray = useConvictions()
-    const foundCrimeObj = crimeArray.find(crime => {
-        return parseInt(crimeThatWasChosen) === crime.id
-    })
+        const selectedCrime = event.detail.crimeId
 
-    const allCriminals = useCriminals()
-    const filteredCriminals = allCriminals.filter(currentObj => {
-        return foundCrimeObj.name === currentObj.conviction
-    })
+        const appStateCriminals = useCriminals()
+        const matchingCriminals = appStateCriminals.filter(currentCriminal => {
+            return currentCriminal.conviction === selectedCrime
+        })
 
-    render(filteredCriminals)
+        render(matchingCriminals)
+    }
 })
 
 const render = criminalCollection => {
@@ -30,8 +27,8 @@ const render = criminalCollection => {
 export const CriminalList = () => {
     getCriminals()
         .then(() => {
-            const criminals = useCriminals()
-            render(criminals)
+            const appStateCriminals = useCriminals()
+            render(appStateCriminals)
         })
 }
 

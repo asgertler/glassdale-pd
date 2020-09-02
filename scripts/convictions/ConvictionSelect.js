@@ -5,13 +5,13 @@ const contentTarget = document.querySelector('.filters__crime')
 
 eventHub.addEventListener("change", changeEvent => {
     if (changeEvent.target.id === "crimeSelect") {
-        const chosenCrime = new CustomEvent("crimeChosen", {
+        const customEvent = new CustomEvent("crimeChosen", {
             detail: {
                 crimeId: changeEvent.target.value
             }
         })
 
-        eventHub.dispatchEvent(chosenCrime)
+        eventHub.dispatchEvent(customEvent)
     }
 })
 
@@ -26,7 +26,7 @@ const render = convictionsCollection => {
                 <option value="0">Please select a crime...</option>
                 ${
         convictionsCollection.map(conObj => {
-            return `<option value="${conObj.id}">${conObj.name}</object>`
+            return `<option value="${conObj.name}">${conObj.name}</object>`
         }).join("")
         }
             </select>
