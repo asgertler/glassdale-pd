@@ -1,9 +1,8 @@
-import { OfficerList } from './officers/OfficerList.js'
+// import { OfficerList } from './officers/OfficerList.js'
 import { CriminalList } from './criminals/CriminalList.js'
-import { getConvictions } from './convictions/ConvictionProvider.js'
+// import { getConvictions } from './convictions/ConvictionProvider.js'
 import { ConvictionSelect } from './convictions/ConvictionSelect.js'
 
-OfficerList()
+// OfficerList()
 CriminalList()
-getConvictions()
-    .then(() => ConvictionSelect())
+ConvictionSelect()

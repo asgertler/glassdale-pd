@@ -1,24 +1,50 @@
 import { CriminalHTML } from './Criminal.js'
 import { useCriminals, getCriminals } from './CriminalProvider.js'
+import { useConvictions } from '../convictions/ConvictionProvider.js'
 
-const eventHub = document.querySelector(".filters")
+const eventHub = document.querySelector(".container")
+const contentTarget = document.querySelector('.criminalsContainer')
 
-eventHub.addEventListener("crimeChosen", changeEvent => {
-    if ("crimeID" in changeEvent.detail) {
+eventHub.addEventListener("chosenCrime", crimeEvent => {
+    const crimeThatWasChosen = crimeEvent.detail.crimeId
 
-    }
+    const crimeArray = useConvictions()
+    const foundCrimeObj = crimeArray.find(crime => {
+        return parseInt(crimeThatWasChosen) === crime.id
+    })
+
+    const allCriminals = useCriminals()
+    const filteredCriminals = allCriminals.filter(currentObj => {
+        return foundCrimeObj.name === currentObj.conviction
+    })
+
+    render(filteredCriminals)
 })
+
+const render = criminalCollection => {
+    contentTarget.innerHTML = criminalCollection.map(criminalObj => {
+        return CriminalHTML(criminalObj)
+    }).join("")
+}
 
 export const CriminalList = () => {
     getCriminals()
         .then(() => {
-            const criminalArray = useCriminals()
-            // console.log("criminalArray", criminalArray)
-            addOfficersToDOM(criminalArray)
+            const criminals = useCriminals()
+            render(criminals)
         })
 }
 
-const addOfficersToDOM = (theCriminalArray) => {
+/* export const CriminalList = () => {
+    getCriminals()
+        .then(() => {
+            const appStateCriminals = useCriminals()
+            // console.log("criminalArray", criminalArray)
+            addCriminalsToDOM(appStateCriminals)
+        })
+} */
+
+/* const addCriminalsToDOM = (theCriminalArray) => {
     const domElement = document.querySelector('.criminalsContainer')
 
     let HTMLArray = theCriminalArray.map(singleCriminal => {
@@ -26,4 +52,4 @@ const addOfficersToDOM = (theCriminalArray) => {
     })
 
     domElement.innerHTML += HTMLArray.join("")
-}
+} */

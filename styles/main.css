@@ -2,7 +2,7 @@ body {
     font-family: 'Roboto Condensed', sans-serif;
 }
 
-.officersContainer {
+.filters__crime {
     display: flex;
     flex-flow: row wrap;
 }
