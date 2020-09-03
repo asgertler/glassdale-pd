@@ -32,7 +32,7 @@ eventHub.addEventListener("officerChosen", event => {
 })
 
 const render = criminalCollection => {
-    const contentTarget = document.querySelector('.criminalsContainer')
+    const contentTarget = document.querySelector('#criminalsContainer')
     contentTarget.innerHTML = criminalCollection.map(criminalObj => {
         return CriminalHTML(criminalObj)
     }).join("")

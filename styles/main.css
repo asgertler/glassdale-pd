@@ -1,16 +1,49 @@
 body {
     font-family: 'Roboto Condensed', sans-serif;
+    margin: 0;
 }
 
 .filters {
     display: flex;
     flex-flow: row wrap;
+    padding-top: 10px;
+    padding-left: 10px;
+    background-color: lightgray;
 }
 
 .filters__crime {
     display: flex;
     flex-flow: row wrap;
     margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+#noteFormContainer {
+    background-color: tomato;
+    padding: 25px;
+}
+
+#noteFormContainer h3 {
+    margin: 0 0 10px 0;
+}
+
+#noteForm--text {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#noteListContainer {
+    background-color: lightblue;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.note {
+    background-color: steelblue;
+    border: 3px solid darkslategray;
+    margin: 10px;
+    padding: 10px;
+    width: 250px;
 }
 
 .card-officer {
@@ -21,7 +54,7 @@ body {
     width: 250px;
 }
 
-.criminalsContainer {
+#criminalsContainer {
     display: flex;
     flex-flow: row wrap;
 }
