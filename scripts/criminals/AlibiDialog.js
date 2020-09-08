@@ -1,6 +1,6 @@
 import { useCriminals } from './CriminalProvider.js'
 
-const eventHub = document.querySelector(".container")
+const eventHub = document.querySelector(".criminals-body")
 
 eventHub.addEventListener("associatesClicked", event => {
 
@@ -8,10 +8,10 @@ eventHub.addEventListener("associatesClicked", event => {
         return criminal.id === parseInt(event.detail.chosenCriminal)
     })
 
-    const alibiTarget = document.querySelector(`.alibiDialog--${criminalAlibi}`)
+    const alibiTarget = document.querySelector(`.alibiDialog--${criminalAlibi.id}`)
     const hTarget = document.querySelector("h4")
 
-    if (alabiTarget.contains(hTarget)) {
+    if (alibiTarget.contains(hTarget)) {
         alibiTarget.innerHTML = ""
     } else {
         alibiTarget.innerHTML = `${
