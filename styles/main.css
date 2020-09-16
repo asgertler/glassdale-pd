@@ -46,21 +46,23 @@ header h1 {
     margin-right: 10px;
 }
 
-#witnessCriminalsSwitch {
+.witnessCriminalsSwitch {
     color: white;
     background-color: lightseagreen;
     border: none;
+    font-weight: bold;
     border-radius: 5px;
     padding: 8px;
 }
 
-#witnessCriminalsSwitch:hover {
+.witnessCriminalsSwitch:hover {
     background-color: seagreen;
 }
 
 #noteFormContainer {
     background-color: tomato;
     padding: 25px;
+    margin-bottom: 10px;
 }
 
 #noteFormContainer h3 {
@@ -85,12 +87,11 @@ header h1 {
 #noteListContainer {
     display: flex;
     flex-flow: column wrap;
-    padding: 10px;
 }
 
 .note {
     border: 3px solid darkslategray;
-    background-color: rgba(0, 0, 0, .15);
+    background-color: lightblue;
     padding: 10px;
     margin-bottom: 10px;
 }
@@ -136,12 +137,25 @@ header h1 {
     margin-top: 10px;
 }
 
+.card-witness {
+    background-color: darkgray;
+    margin: 10px;
+    padding: 10px;
+    border: 3px solid slategray;
+    width: 250px; 
+}
+
+.card-witness h2 {
+    margin: 0 0 10px 0;
+}
+
+.card-witness p {
+    margin: 2px 0;
+}
+
 .criminals-body {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
-}
-
-aside {
-    background-color: lightblue;
+}kground-color: lightblue;
 }

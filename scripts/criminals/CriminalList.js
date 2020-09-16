@@ -2,6 +2,7 @@ import { CriminalHTML } from './Criminal.js'
 import { useCriminals, getCriminals } from './CriminalProvider.js'
 
 const eventHub = document.querySelector(".container")
+const buttonTarget = document.querySelector(".witnessCriminals")
 
 eventHub.addEventListener("crimeChosen", event => {
     if ("crimeId" in event.detail) {
@@ -28,6 +29,18 @@ eventHub.addEventListener("officerChosen", event => {
         })
 
         render(matchingCriminals)
+    }
+})
+
+eventHub.addEventListener("click", event => {
+    if (event.target.id === "witnessSwitchBtn") {
+        getCriminals()
+            .then(() => {
+                const appStateCriminals = useCriminals()
+                render(appStateCriminals)
+                buttonTarget.innerHTML = '<button class="witnessCriminalsSwitch" id="switchCriminalBtn">Witness Statements</button>'
+
+            })
     }
 })
 

@@ -1,6 +1,6 @@
 import { useCriminals } from './CriminalProvider.js'
 
-const eventHub = document.querySelector(".criminals-body")
+const eventHub = document.querySelector(".container")
 
 eventHub.addEventListener("associatesClicked", event => {
 
