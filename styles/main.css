@@ -58,7 +58,6 @@ header h1 {
 }
 
 #noteListContainer {
-    background-color: lightblue;
     display: flex;
     flex-flow: column wrap;
     padding: 10px;
@@ -108,4 +107,9 @@ header h1 {
 .criminals-body {
     display: flex;
     flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+aside {
+    background-color: lightblue;
 }
