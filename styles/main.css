@@ -31,16 +31,31 @@ header h1 {
 .filters {
     display: flex;
     flex-flow: row wrap;
-    padding-top: 10px;
-    padding-left: 10px;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+    padding: 10px;
     background-color: lightgray;
 }
 
 .filters__crime {
-    display: flex;
-    flex-flow: row wrap;
     margin-right: 10px;
-    margin-bottom: 10px;
+}
+
+.filters__officer {
+    margin-right: 10px;
+}
+
+#witnessCriminalsSwitch {
+    color: white;
+    background-color: lightseagreen;
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+#witnessCriminalsSwitch:hover {
+    background-color: seagreen;
 }
 
 #noteFormContainer {
@@ -55,6 +70,16 @@ header h1 {
 #noteForm--text {
     display: block;
     margin-bottom: 10px;
+}
+
+.noteForm--clickables {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+#noteForm--criminal {
+    flex-basis: 70%;
 }
 
 #noteListContainer {
