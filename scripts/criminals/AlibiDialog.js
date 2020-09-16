@@ -1,6 +1,6 @@
 import { useCriminals } from './CriminalProvider.js'
 
-const eventHub = document.querySelector(".criminals-body")
+const eventHub = document.querySelector(".container")
 
 eventHub.addEventListener("associatesClicked", event => {
 
@@ -14,13 +14,12 @@ eventHub.addEventListener("associatesClicked", event => {
     if (alibiTarget.contains(hTarget)) {
         alibiTarget.innerHTML = ""
     } else {
-        alibiTarget.innerHTML = `${
-            criminalAlibi.known_associates.map(associate => {
-                return `
+        alibiTarget.innerHTML = `${criminalAlibi.known_associates.map(associate => {
+            return `
                     <h4>${associate.name}</h4>
                     <div>${associate.alibi}</div>
                 `
-            }).join("")
+        }).join("")
             }`
     }
 

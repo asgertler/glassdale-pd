@@ -1,6 +1,6 @@
 import { AlibiDialog } from './AlibiDialog.js'
 
-const eventHub = document.querySelector(".criminals-body")
+const eventHub = document.querySelector(".container")
 
 eventHub.addEventListener("click", event => {
 
