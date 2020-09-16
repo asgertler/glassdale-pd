@@ -35,11 +35,14 @@ eventHub.addEventListener("officerChosen", event => {
 eventHub.addEventListener("click", event => {
     if (event.target.id === "witnessSwitchBtn") {
         getCriminals()
+
             .then(() => {
                 const appStateCriminals = useCriminals()
                 render(appStateCriminals)
-                buttonTarget.innerHTML = '<button class="witnessCriminalsSwitch" id="switchCriminalBtn">Witness Statements</button>'
+            })
 
+            .then(() => {
+                buttonTarget.innerHTML = '<button class="witnessCriminalsSwitch" id="switchCriminalBtn">Witness Statements</button>'
             })
     }
 })

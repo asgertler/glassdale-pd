@@ -7,13 +7,16 @@ const buttonTarget = document.querySelector(".witnessCriminals")
 eventHub.addEventListener("click", event => {
     if (event.target.id === "switchCriminalBtn") {
         getWitnesses()
+
             .then(() => {
                 const appStateWitnesses = useWitnesses()
                 render(appStateWitnesses)
             })
-    }
 
-    buttonTarget.innerHTML = '<button class="witnessCriminalsSwitch" id="witnessSwitchBtn>Criminals</button>'
+            .then(() => {
+                buttonTarget.innerHTML = '<button class="witnessCriminalsSwitch" id="witnessSwitchBtn">Criminals</button>'
+            })
+    }
 })
 
 const render = witnessCollection => {
