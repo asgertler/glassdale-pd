@@ -3,6 +3,31 @@ body {
     margin: 0;
 }
 
+header {
+    background-color: darkblue;
+}
+
+header h1 {
+    color: white;
+    letter-spacing: .05em;
+    margin: 0;
+}
+
+.page-title {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-items: center;
+    padding: 25px;
+}
+
+.page-title img {
+    margin-right: 15px;
+    height: 50px;
+    width: auto;
+}
+
 .filters {
     display: flex;
     flex-flow: row wrap;

@@ -45,22 +45,3 @@ export const CriminalList = () => {
             render(appStateCriminals)
         })
 }
-
-/* export const CriminalList = () => {
-    getCriminals()
-        .then(() => {
-            const appStateCriminals = useCriminals()
-            // console.log("criminalArray", criminalArray)
-            addCriminalsToDOM(appStateCriminals)
-        })
-} */
-
-/* const addCriminalsToDOM = (theCriminalArray) => {
-    const domElement = document.querySelector('.criminalsContainer')
-
-    let HTMLArray = theCriminalArray.map(singleCriminal => {
-        return CriminalHTML(singleCriminal)
-    })
-
-    domElement.innerHTML += HTMLArray.join("")
-} */
