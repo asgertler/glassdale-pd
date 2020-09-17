@@ -1,10 +1,28 @@
 {
   "notes": [
     {
-      "noteText": "New test note",
-      "suspect": "2",
-      "date": 1600377572219,
+      "noteText": "test",
+      "suspectId": 10,
+      "date": 1600381789826,
       "id": 1
+    },
+    {
+      "noteText": "test",
+      "suspectId": 12,
+      "date": 1600381887978,
+      "id": 2
+    },
+    {
+      "noteText": "test",
+      "suspectId": 15,
+      "date": 1600382260651,
+      "id": 3
+    },
+    {
+      "noteText": "test",
+      "suspectId": 14,
+      "date": 1600383396793,
+      "id": 4
     }
   ]
 }

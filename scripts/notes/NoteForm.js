@@ -17,7 +17,7 @@ eventHub.addEventListener("click", clickEvent => {
         if (noteCriminal.value !== "0") {
             const newNote = {
                 noteText: noteContent.value,
-                suspect: noteCriminal.value,
+                suspectId: parseInt(noteCriminal.value),
                 date: Date.now()
             }
 

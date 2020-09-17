@@ -1,27 +1,23 @@
-/*
-    map over an array and display all notes from Note.js
-*/
+// map over an array and display all notes from Note.js
 
 import { getCriminals, useCriminals } from '../criminals/CriminalProvider.js'
 import { getNotes, useNotes } from './NoteProvider.js'
-// import { NoteHTMLConverter } from './Note.js'
+import { NoteHTMLConverter } from './Note.js'
 
 const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector("#noteListContainer")
 
-const render = (noteCollection, criminalCollection) => {
-    contentTarget.innerHTML = noteCollection.map((note) => {
+const render = (noteCollection, suspectCollection) => {
+
+    contentTarget.innerHTML = noteCollection.map((noteObj) => {
 
         // Find the related criminal
-        const relatedCriminal = criminalCollection.find(criminal => criminal.id === note.criminalId)
+        noteObj.suspectObj = suspectCollection.find(suspect => {
+            return suspect.id === parseInt(noteObj.suspectId)
+        })
 
-        return `
-            <section class="note">
-                <h2>Note about ${relatedCriminal.name}</h2>
-                ${note.noteText}
-            </section>
-        `
-    })
+        return NoteHTMLConverter(noteObj)
+    }).join("")
 }
 
 export const NoteList = () => {
@@ -29,13 +25,13 @@ export const NoteList = () => {
         .then(getCriminals)
         .then(() => {
             const notes = useNotes()
-            const criminals = useCriminals()
+            const suspects = useCriminals()
 
-            render(notes, criminals)
+            render(notes, suspects)
         })
 }
 
 eventHub.addEventListener("noteStateChanged", () => {
     const newNotes = useNotes()
-    render(newNotes)
+    render(newNotes, useCriminals)
 })
