@@ -59,6 +59,10 @@ header h1 {
     background-color: seagreen;
 }
 
+aside {
+    margin: 10px;
+}
+
 #noteFormContainer {
     background-color: tomato;
     padding: 25px;
