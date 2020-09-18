@@ -1,28 +1,22 @@
 {
   "notes": [
     {
-      "noteText": "test note",
+      "noteText": "Has not posted bail as of 13:04, awaiting trial date and information.",
       "suspectId": 6,
-      "date": 1600447705606,
+      "date": 1600448292953,
       "id": 1
     },
     {
-      "noteText": "test 2",
-      "suspectId": 12,
-      "date": 1600447907767,
+      "noteText": "Requested lawyer at 11:13.",
+      "suspectId": 13,
+      "date": 1600448311396,
       "id": 2
     },
     {
-      "noteText": "test",
-      "suspectId": 6,
-      "date": 1600448090360,
+      "noteText": "Sent to booking at 17:36.",
+      "suspectId": 5,
+      "date": 1600448479344,
       "id": 3
-    },
-    {
-      "noteText": "test",
-      "suspectId": 6,
-      "date": 1600448133852,
-      "id": 4
     }
   ]
 }

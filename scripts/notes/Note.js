@@ -5,7 +5,10 @@ export const NoteHTMLConverter = (noteObj) => {
         <section class="note">
             <div class="note--title"><strong>Suspect:</strong> ${noteObj.suspectObj.name}</div>
             <div class="note--content">${noteObj.noteText}</div>
-            <div class="note--timestamp"><strong>Timestamp:</strong> ${new Date(noteObj.date).toLocaleDateString('en-US')}</div>
+            <div class="note--bottom">
+                <div class="note--timestamp"><strong>Timestamp:</strong> ${new Date(noteObj.date).toLocaleDateString('en-US')}</div>
+                <button id="deleteNote--${noteObj.id}">Delete</button>
+            </div>
         </section>
     `
 }

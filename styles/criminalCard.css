@@ -1,0 +1,45 @@
+.card-criminal {
+    background-color: darkgray;
+    margin: 10px;
+    padding: 10px;
+    border: 3px solid slategray;
+    width: 250px;
+}
+
+.card-criminal h2 {
+    margin: 0 0 10px 0;
+}
+
+.card-criminal h4 {
+    margin: 10px 0 2px 0;
+}
+
+.card-criminal p {
+    margin: 2px 0;
+}
+
+.card-criminal button {
+    margin-top: 10px;
+}
+
+.card-witness {
+    background-color: darkgray;
+    margin: 10px;
+    padding: 10px;
+    border: 3px solid slategray;
+    width: 250px; 
+}
+
+.card-witness h2 {
+    margin: 0 0 10px 0;
+}
+
+.card-witness p {
+    margin: 2px 0;
+}
+
+.criminals-body {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}

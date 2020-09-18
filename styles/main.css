@@ -1,3 +1,6 @@
+@import './criminalCard.css';
+@import './notes.css';
+
 body {
     font-family: 'Roboto Condensed', sans-serif;
     margin: 0;
@@ -57,108 +60,4 @@ header h1 {
 
 .witnessCriminalsSwitch:hover {
     background-color: seagreen;
-}
-
-aside {
-    margin: 10px;
-}
-
-#noteFormContainer {
-    background-color: tomato;
-    padding: 25px;
-    margin-bottom: 10px;
-}
-
-#noteFormContainer h3 {
-    margin: 0 0 10px 0;
-}
-
-#noteForm--text {
-    display: block;
-    margin-bottom: 10px;
-}
-
-.noteForm--clickables {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-}
-
-#noteForm--criminal {
-    flex-basis: 70%;
-}
-
-#noteListContainer {
-    display: flex;
-    flex-flow: column wrap;
-}
-
-.note {
-    border: 3px solid darkslategray;
-    background-color: lightblue;
-    padding: 10px;
-    margin-bottom: 10px;
-}
-
-.note--title {
-    margin-bottom: 10px;
-}
-
-.note--content {
-    margin-bottom: 10px;
-}
-
-.card-officer {
-    background-color: tomato;
-    margin: 10px;
-    padding: 10px;
-    border: 3px solid darkred;
-    width: 250px;
-}
-
-#criminalsContainer {
-    display: flex;
-    flex-flow: row wrap;
-}
-
-.card-criminal {
-    background-color: darkgray;
-    margin: 10px;
-    padding: 10px;
-    border: 3px solid slategray;
-    width: 250px;
-}
-
-.card-criminal h2 {
-    margin: 0 0 10px 0;
-}
-
-.card-criminal p {
-    margin: 2px 0;
-}
-
-.card-criminal button {
-    margin-top: 10px;
-}
-
-.card-witness {
-    background-color: darkgray;
-    margin: 10px;
-    padding: 10px;
-    border: 3px solid slategray;
-    width: 250px; 
-}
-
-.card-witness h2 {
-    margin: 0 0 10px 0;
-}
-
-.card-witness p {
-    margin: 2px 0;
-}
-
-.criminals-body {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
 }
