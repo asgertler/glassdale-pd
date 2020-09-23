@@ -65,14 +65,6 @@ const render = (criminalsToRender, allFacilities, allRelationships) => {
     ).join("")
 }
 
-/*
-const render = criminalCollection => {
-    contentTarget.innerHTML = criminalCollection.map(criminalObj => {
-        return CriminalHTML(criminalObj)
-    }).join("")
-}
-*/
-
 export const CriminalList = () => {
     getFacilities()
         .then(getCriminalFacilities)
@@ -84,13 +76,3 @@ export const CriminalList = () => {
             render(criminals, facilities, crimFac)
         })
 }
-
-/*
-export const CriminalList = () => {
-    getCriminals()
-        .then(() => {
-            const appStateCriminals = useCriminals()
-            render(appStateCriminals)
-        })
-}
-*/
