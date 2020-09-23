@@ -4,6 +4,7 @@ import { CriminalHTML } from './Criminal.js'
 import { useCriminals, getCriminals } from './CriminalProvider.js'
 
 const eventHub = document.querySelector(".container")
+const contentTarget = document.querySelector('#criminalsContainer')
 const buttonTarget = document.querySelector(".witnessCriminals")
 
 eventHub.addEventListener("crimeChosen", event => {
@@ -49,12 +50,28 @@ eventHub.addEventListener("click", event => {
     }
 })
 
+const render = (criminalsToRender, allFacilities, allRelationships) => {
+    contentTarget.innerHTML = criminalsToRender.map(
+        (criminalObject) => {
+            const facilityRelationshipsForThisCriminal = allRelationships.filter(cf => cf.criminalId === criminalObject.id)
+
+            const facilities = facilityRelationshipsForThisCriminal.map(cf => {
+                const matchingFacilityObject = allFacilities.find(facility => facility.id === cf.facilityId)
+                return matchingFacilityObject
+            })
+
+            return CriminalHTML(criminalObject, facilities)
+        }
+    ).join("")
+}
+
+/*
 const render = criminalCollection => {
-    const contentTarget = document.querySelector('#criminalsContainer')
     contentTarget.innerHTML = criminalCollection.map(criminalObj => {
         return CriminalHTML(criminalObj)
     }).join("")
 }
+*/
 
 export const CriminalList = () => {
     getFacilities()
