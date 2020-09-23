@@ -52,15 +52,15 @@ eventHub.addEventListener("click", event => {
 
 const render = (criminalsToRender, allFacilities, allRelationships) => {
     contentTarget.innerHTML = criminalsToRender.map(
-        (criminalObject) => {
-            const facilityRelationshipsForThisCriminal = allRelationships.filter(cf => cf.criminalId === criminalObject.id)
+        (criminalObj) => {
+            const facilityRelationshipsForThisCriminal = allRelationships.filter(cf => cf.criminalId === criminalObj.id)
 
             const facilities = facilityRelationshipsForThisCriminal.map(cf => {
                 const matchingFacilityObject = allFacilities.find(facility => facility.id === cf.facilityId)
                 return matchingFacilityObject
             })
 
-            return CriminalHTML(criminalObject, facilities)
+            return CriminalHTML(criminalObj, facilities)
         }
     ).join("")
 }
