@@ -1,7 +1,10 @@
+import { getCriminalFacilities, useCriminalFacilities } from '../facilities/CriminalFacilityProvider.js'
+import { getFacilities, useFacilities } from '../facilities/FacilityProvider.js'
 import { CriminalHTML } from './Criminal.js'
 import { useCriminals, getCriminals } from './CriminalProvider.js'
 
 const eventHub = document.querySelector(".container")
+const contentTarget = document.querySelector('#criminalsContainer')
 const buttonTarget = document.querySelector(".witnessCriminals")
 
 eventHub.addEventListener("crimeChosen", event => {
@@ -47,17 +50,29 @@ eventHub.addEventListener("click", event => {
     }
 })
 
-const render = criminalCollection => {
-    const contentTarget = document.querySelector('#criminalsContainer')
-    contentTarget.innerHTML = criminalCollection.map(criminalObj => {
-        return CriminalHTML(criminalObj)
-    }).join("")
+const render = (criminalsToRender, allFacilities, allRelationships) => {
+    contentTarget.innerHTML = criminalsToRender.map(
+        (criminalObj) => {
+            const facilityRelationshipsForThisCriminal = allRelationships.filter(cf => cf.criminalId === criminalObj.id)
+
+            const facilities = facilityRelationshipsForThisCriminal.map(cf => {
+                const matchingFacilityObject = allFacilities.find(facility => facility.id === cf.facilityId)
+                return matchingFacilityObject
+            })
+
+            return CriminalHTML(criminalObj, facilities)
+        }
+    ).join("")
 }
 
 export const CriminalList = () => {
-    getCriminals()
+    getFacilities()
+        .then(getCriminalFacilities)
         .then(() => {
-            const appStateCriminals = useCriminals()
-            render(appStateCriminals)
+            const facilities = useFacilities()
+            const crimFac = useCriminalFacilities()
+            const criminals = useCriminals()
+
+            render(criminals, facilities, crimFac)
         })
 }
