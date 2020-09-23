@@ -1,3 +1,5 @@
+import { getCriminalFacilities, useCriminalFacilities } from '../facilities/CriminalFacilityProvider.js'
+import { getFacilities, useFacilities } from '../facilities/FacilityProvider.js'
 import { CriminalHTML } from './Criminal.js'
 import { useCriminals, getCriminals } from './CriminalProvider.js'
 
@@ -55,9 +57,23 @@ const render = criminalCollection => {
 }
 
 export const CriminalList = () => {
+    getFacilities()
+        .then(getCriminalFacilities)
+        .then(() => {
+            const facilities = useFacilities()
+            const crimFac = useCriminalFacilities()
+            const criminals = useCriminals()
+
+            render(criminals, facilities, crimFac)
+        })
+}
+
+/*
+export const CriminalList = () => {
     getCriminals()
         .then(() => {
             const appStateCriminals = useCriminals()
             render(appStateCriminals)
         })
 }
+*/
